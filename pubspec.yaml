@@ -59,8 +59,21 @@ flutter:
          - asset: fonts/ThaiSansNeue-BlackItalic.otf
          - asset: fonts/ThaiSansNeue-Bold.otf
          - asset: fonts/ThaiSansNeue-BoldItalic.otf
-        
-         
+         - asset: fonts/ThaiSansNeue-ExtraBold.otf
+         - asset: fonts/ThaiSansNeue-ExtraBoldItali.otf
+         - asset: fonts/ThaiSansNeue-ExtraLight.otf
+         - asset: fonts/ThaiSansNeue-ExtraLightItal.otf
+         - asset: fonts/ThaiSansNeue-Italic.otf
+         - asset: fonts/ThaiSansNeue-Light.otf
+         - asset: fonts/ThaiSansNeue-LightItalic.otf
+         - asset: fonts/ThaiSansNeue-Regular.otf
+         - asset: fonts/ThaiSansNeue-SemiBold.otf
+         - asset: fonts/ThaiSansNeue-SemiBoldItalic.otf
+         - asset: fonts/ThaiSansNeue-UltraBold.otf
+         - asset: fonts/ThaiSansNeue-UltraBoldItali.otf
+         - asset: fonts/ThaiSansNeue-UltraLight.otf
+         - asset: fonts/ThaiSansNeue-UltraLightItal.otf  
+
          
   #         style: italic
   #   - family: Trajan Pro

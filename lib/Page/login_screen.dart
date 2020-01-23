@@ -37,183 +37,211 @@ class _LoginPageState extends State<LoginPage> {
     Size a = MediaQuery.of(context).size;
     return Scaffold(
         body: Form(
-            key: formKey,
-            child: Container(
+      key: formKey,
+      child: Container(
+        width: a.width,
+        height: a.height,
+        //color: Color(0xffF6A41F),
+        decoration: BoxDecoration(
+          gradient: RadialGradient(
+            colors: [
+              Colors.amber,
+              Colors.amber[700],
+            ],
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 60.0),
               width: a.width,
-              height: a.height,
-              color: Color(0xffF6A41F),
-              child: Padding(
-                padding: EdgeInsets.all(a.width / 60),
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      width: a.width,
-                      child: Row(
-                        children: <Widget>[
-                          Icon(
-                            Icons.keyboard_arrow_left,
+              child: Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.keyboard_arrow_left,
+                    color: Colors.white,
+                    size: 30.0,
+                  ),
+                  Text(
+                    "ย้อนกลับ   ",
+                    style: TextStyle(color: Colors.white, fontSize: 25.0),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.fromLTRB(a.width / 15, 0, a.width / 15, 0),
+              //color: Colors.black26,
+              width: a.width,
+              height: a.height / 1.75,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    // color: Colors.black38,
+                    width: a.width / 5,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          "สนับสนุน ",
+                          style: TextStyle(
+                            fontSize: a.width/20,
                             color: Colors.white,
-                            size: a.width / 50,
+                            letterSpacing: 6,
                           ),
-                          Text(
-                            "ย้อนกลับ",
-                            style: TextStyle(
-                                color: Colors.white, fontSize: a.width / 50),
-                          )
-                        ],
-                      ),
+                        ),
+                        Text(
+                          "ความคิด ",
+                          style: TextStyle(
+                            fontSize: a.width/20,
+                            color: Colors.white,
+                            letterSpacing: 6,
+                          ),
+                        ),
+                        Text(
+                          "สร้างสรรค์ ",
+                          style: TextStyle(
+                            fontSize: a.width/20,
+                            color: Colors.white,
+                            letterSpacing: 6,
+                          ),
+                        ),
+                      ],
                     ),
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  ),
+                  Container(
+                    //color: Colors.black38,
+                    width: a.width / 1.9,
+                    child: Card(
+                      elevation: 10.0,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0)),
+                      child: Container(
+                          child: Column(
                         children: <Widget>[
+                          Text("เข้าสู่ระบบ"),
+                          Row(
+                            children: <Widget>[
+                              Container(
+                                margin: EdgeInsets.only(
+                                    top: a.width / 20,
+                                    right: a.width / 40,
+                                    left: a.width / 40),
+                                child: Column(
+                                  children: <Widget>[
+                                    Text(
+                                      "กรอกข้อมูลเพื่อเข้าสู่ระบบ",
+                                      style: TextStyle(fontSize: a.width / 60),
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          color: Color(0xffEBEBEB),
+                                          borderRadius:
+                                              BorderRadius.circular(a.width)),
+                                      width: a.width / 5,
+                                      height: a.width / 40,
+                                      child: TextFormField(
+                                        decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            hintText: 'Email'),
+                                        validator: (value) => value.isEmpty
+                                            ? 'Email is required'
+                                            : validateEmail(value.trim()),
+                                        onChanged: (value) {
+                                          this.email = value;
+                                        },
+                                      ),
+                                    ),
+                                    Container(
+                                      margin:
+                                          EdgeInsets.only(top: a.width / 80),
+                                      decoration: BoxDecoration(
+                                          color: Color(0xffEBEBEB),
+                                          borderRadius:
+                                              BorderRadius.circular(a.width)),
+                                      width: a.width / 5,
+                                      height: a.width / 40,
+                                      child: TextFormField(
+                                        obscureText: true,
+                                        decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            hintText: 'Password'),
+                                        validator: (value) => value.isEmpty
+                                            ? 'Password is required'
+                                            : null,
+                                        onChanged: (value) {
+                                          this.password = value;
+                                        },
+                                      ),
+                                    ),
+                                    Text("ลืมรหัสผ่าน")
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                  width: a.width / 10,
+                                  height: a.width / 10,
+                                  child: Image.asset("assets/nauun.png",
+                                      width: a.width / 10,
+                                      height: a.width / 10))
+                            ],
+                          ),
                           Container(
-                            height: a.height / 1.15,
-                            padding: EdgeInsets.only(top: a.height / 7),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            // color: Colors.black26,
+                            height: a.width / 10,
+                            child: Row(
                               children: <Widget>[
-                                text1("ส นั บ ส นุ น"),
-                                text1("ค ว า ม คิ ด"),
-                                text1("ส ร้ า ง ส ร ร ค์"),
+                                InkWell(
+                                  child: Text("สมัครสมาชิก"),
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                MySignUpPage()));
+                                  },
+                                ),
+                                InkWell(
+                                    onTap: () {
+                                      if (checkFields() &&
+                                          formKey.currentState.validate()) {
+                                        AuthService().signIn(email, password);
+                                      }
+                                    },
+                                    child: Container(
+                                        height: a.width / 30,
+                                        width: a.width / 12,
+                                        decoration: BoxDecoration(
+                                            color: Color(0xffEBB00E),
+                                            borderRadius:
+                                                BorderRadius.circular(a.width)),
+                                        child: Center(
+                                            child: Text(
+                                          'ยืนยัน',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: a.width / 80),
+                                        )))),
                               ],
                             ),
                           ),
-                          Card(
-                            child: Container(
-                                width: a.width / 2,
-                                height: a.width / 3,
-                                child: Column(
-                                  children: <Widget>[
-                                    Text("เข้าสู่ระบบ"),
-                                    Row(
-                                      children: <Widget>[
-                                        Container(
-                                          margin: EdgeInsets.only(
-                                              top: a.width / 20,
-                                              right: a.width / 40,
-                                              left: a.width / 40),
-                                          child: Column(
-                                            children: <Widget>[
-                                              Text(
-                                                  "กรอกข้อมูลเพื่อเข้าสู่ระบบ",style: TextStyle(fontSize: a.width/60),),
-                                              Container(
-                                                decoration: BoxDecoration(
-                                                    color: Color(0xffEBEBEB),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            a.width)),
-                                                width: a.width / 5,
-                                                height: a.width / 40,
-                                                child: TextFormField(
-                                                  decoration: InputDecoration(
-                                                      border: InputBorder.none,
-                                                      hintText: 'Email'),
-                                                  validator: (value) =>
-                                                      value.isEmpty
-                                                          ? 'Email is required'
-                                                          : validateEmail(
-                                                              value.trim()),
-                                                  onChanged: (value) {
-                                                    this.email = value;
-                                                  },
-                                                ),
-                                              ),
-                                              Container(
-                                                margin: EdgeInsets.only(
-                                                    top: a.width / 80),
-                                                decoration: BoxDecoration(
-                                                    color: Color(0xffEBEBEB),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            a.width)),
-                                                width: a.width / 5,
-                                                height: a.width / 40,
-                                                child: TextFormField(
-                                                  obscureText: true,
-                                                  decoration: InputDecoration(
-                                                      border: InputBorder.none,
-                                                      hintText: 'Password'),
-                                                  validator: (value) => value
-                                                          .isEmpty
-                                                      ? 'Password is required'
-                                                      : null,
-                                                  onChanged: (value) {
-                                                    this.password = value;
-                                                  },
-                                                ),
-                                              ),
-                                              Text("ลืมรหัสผ่าน")
-                                            ],
-                                          ),
-                                        ),
-                                        Container(
-                                            width: a.width / 10,
-                                            height: a.width / 10,
-                                            child: Image.asset(
-                                                "assets/nauun.png",
-                                                width: a.width / 10,
-                                                height: a.width / 10))
-                                      ],
-                                    ),
-                                    Container(
-                                      color: Colors.black26,
-                                      height: a.width/10,
-                                      child: Row(
-                                        children: <Widget>[
-                                          InkWell(
-                                            child: Text("สมัครสมาชิก"),
-                                            onTap: () {
-                                              Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          MySignUpPage()));
-                                            },
-                                          ),
-                                          InkWell(
-                                              onTap: () {
-                                                if (checkFields() &&
-                                                    formKey.currentState
-                                                        .validate()) {
-                                                  AuthService()
-                                                      .signIn(email, password);
-                                                }
-                                              },
-                                              child: Container(
-                                                  height: a.width / 30,
-                                                  width: a.width / 12,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xffEBB00E),
-                                                    borderRadius: BorderRadius.circular(a.width)
-                                                  ),
-                                                  child: Center(
-                                                      child: Text(
-                                                    'ยืนยัน',
-                                                    style: TextStyle(
-                                                        color: Colors.white,fontSize: a.width/80),
-                                                  )))),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                )),
-                          ),
                         ],
-                      ),
-                    )
-                  ],
-                ),
+                      )),
+                    ),
+                  ),
+                ],
               ),
-            )));
-  }
-
-  text1(String text001) {
-    return Text(
-      text001,
-      style: TextStyle(
-          color: Colors.white,
-          fontSize: MediaQuery.of(context).size.width / 15),
-    );
+            ),
+            Container(
+              width: a.width,
+              height: 110.0,
+            ),
+          ],
+        ),
+      ),
+    ));
   }
 }
