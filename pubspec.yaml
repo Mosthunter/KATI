@@ -57,8 +57,7 @@ flutter:
      fonts:
          - asset: fonts/ThaiSansNeue-Black.otf
          - asset: fonts/ThaiSansNeue-BlackItalic.otf
-         - asset: fonts/ThaiSansNeue-Bold.otf
-         - asset: fonts/ThaiSansNeue-BoldItalic.otf
+           style: italic
         
          
          
