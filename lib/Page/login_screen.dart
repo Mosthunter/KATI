@@ -13,15 +13,6 @@ class _LoginPageState extends State<LoginPage> {
 
   final formKey = new GlobalKey<FormState>();
 
-  checkFields() {
-    final form = formKey.currentState;
-    if (form.validate()) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   String validateEmail(String value) {
     Pattern pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
@@ -88,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                         Text(
                           "สนับสนุน ",
                           style: TextStyle(
-                            fontSize: a.width/20,
+                            fontSize: a.width / 20,
                             color: Colors.white,
                             letterSpacing: 6,
                           ),
@@ -96,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                         Text(
                           "ความคิด ",
                           style: TextStyle(
-                            fontSize: a.width/20,
+                            fontSize: a.width / 20,
                             color: Colors.white,
                             letterSpacing: 6,
                           ),
@@ -104,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                         Text(
                           "สร้างสรรค์ ",
                           style: TextStyle(
-                            fontSize: a.width/20,
+                            fontSize: a.width / 20,
                             color: Colors.white,
                             letterSpacing: 6,
                           ),
@@ -206,8 +197,7 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                                 InkWell(
                                     onTap: () {
-                                      if (checkFields() &&
-                                          formKey.currentState.validate()) {
+                                      if (formKey.currentState.validate()) {
                                         AuthService().signIn(email, password);
                                       }
                                     },

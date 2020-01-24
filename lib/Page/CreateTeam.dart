@@ -1,7 +1,8 @@
 import 'package:firebase/firebase.dart';
 import 'package:firebase/firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:ggtt/service/FireStore_Service.dart';
+import 'package:ggtt/Service/FireStore_Service.dart';
+
 
 import 'Team.dart';
 
