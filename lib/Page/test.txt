@@ -1,0 +1,125 @@
+                          Card(
+                            child: Container(
+                                width: a.width / 2,
+                                height: a.width / 3,
+                                child: Column(
+                                  children: <Widget>[
+                                    Text("เข้าสู่ระบบ"),
+                                    Row(
+                                      children: <Widget>[
+                                        Container(
+                                          margin: EdgeInsets.only(
+                                              top: a.width / 20,
+                                              right: a.width / 40,
+                                              left: a.width / 40),
+                                          child: Column(
+                                            children: <Widget>[
+                                              Text(
+                                                "กรอกข้อมูลเพื่อเข้าสู่ระบบ",
+                                                style: TextStyle(
+                                                    fontSize: a.width / 60),
+                                              ),
+                                              Container(
+                                                decoration: BoxDecoration(
+                                                    color: Color(0xffEBEBEB),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            a.width)),
+                                                width: a.width / 5,
+                                                height: a.width / 40,
+                                                child: TextFormField(
+                                                  decoration: InputDecoration(
+                                                      border: InputBorder.none,
+                                                      hintText: 'Email'),
+                                                  validator: (value) =>
+                                                      value.isEmpty
+                                                          ? 'Email is required'
+                                                          : validateEmail(
+                                                              value.trim()),
+                                                  onChanged: (value) {
+                                                    this.email = value;
+                                                  },
+                                                ),
+                                              ),
+                                              Container(
+                                                margin: EdgeInsets.only(
+                                                    top: a.width / 80),
+                                                decoration: BoxDecoration(
+                                                    color: Color(0xffEBEBEB),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            a.width)),
+                                                width: a.width / 5,
+                                                height: a.width / 40,
+                                                child: TextFormField(
+                                                  obscureText: true,
+                                                  decoration: InputDecoration(
+                                                      border: InputBorder.none,
+                                                      hintText: 'Password'),
+                                                  validator: (value) => value
+                                                          .isEmpty
+                                                      ? 'Password is required'
+                                                      : null,
+                                                  onChanged: (value) {
+                                                    this.password = value;
+                                                  },
+                                                ),
+                                              ),
+                                              Text("ลืมรหัสผ่าน")
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                            width: a.width / 10,
+                                            height: a.width / 10,
+                                            child: Image.asset(
+                                                "assets/nauun.png",
+                                                width: a.width / 10,
+                                                height: a.width / 10))
+                                      ],
+                                    ),
+                                    Container(
+                                      color: Colors.black26,
+                                      height: a.width / 10,
+                                      child: Row(
+                                        children: <Widget>[
+                                          InkWell(
+                                            child: Text("สมัครสมาชิก"),
+                                            onTap: () {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          MySignUpPage()));
+                                            },
+                                          ),
+                                          InkWell(
+                                              onTap: () {
+                                                if (checkFields() &&
+                                                    formKey.currentState
+                                                        .validate()) {
+                                                  AuthService()
+                                                      .signIn(email, password);
+                                                }
+                                              },
+                                              child: Container(
+                                                  height: a.width / 30,
+                                                  width: a.width / 12,
+                                                  decoration: BoxDecoration(
+                                                      color: Color(0xffEBB00E),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              a.width)),
+                                                  child: Center(
+                                                      child: Text(
+                                                    'ยืนยัน',
+                                                    style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: a.width / 80),
+                                                  )))),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                )),
+                          ),
